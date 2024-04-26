@@ -15,10 +15,12 @@ const AdminOrderPage = () => {
   const [query, setQuery] = useSearchParams();
   const dispatch = useDispatch();
   const orderList = useSelector((state) => state.order.orderList);
+  console.log("orderList in AdminOrderPage", orderList)
   const [searchQuery, setSearchQuery] = useState({
     page: query.get("page") || 1,
     ordernum: query.get("ordernum") || "",
   });
+  const error = useSelector((state) => state.order.error);
   const [open, setOpen] = useState(false);
   const totalPageNum = useSelector((state) => state.order.totalPageNum);
   const tableHeader = [

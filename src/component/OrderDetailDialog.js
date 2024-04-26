@@ -12,9 +12,12 @@ const OrderDetailDialog = ({ open, handleClose }) => {
   const [orderStatus, setOrderStatus] = useState(selectedOrder.status);
   const dispatch = useDispatch();
 
+  console.log("selectedOrder in OrderDetailDialog", selectedOrder);
+
   const handleStatusChange = (event) => {
     setOrderStatus(event.target.value);
   };
+
   const submitStatus = () => {
     dispatch(orderActions.updateOrder(selectedOrder._id, orderStatus));
     handleClose();
@@ -37,9 +40,8 @@ const OrderDetailDialog = ({ open, handleClose }) => {
         </p>
         <p>
           연락처:
-          {`${
-            selectedOrder.contact.firstName + selectedOrder.contact.lastName
-          } ${selectedOrder.contact.contact}`}
+          {`${selectedOrder.contact.firstName + selectedOrder.contact.lastName
+            } ${selectedOrder.contact.contact}`}
         </p>
         <p>주문내역</p>
         <div className="overflow-x">

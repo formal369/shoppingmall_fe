@@ -2,14 +2,16 @@ import React from "react";
 import { Table, Badge } from "react-bootstrap";
 import { badgeBg } from "../constants/order.constants";
 import { currencyFormat } from "../utils/number";
+
 const OrderTable = ({ header, data, openEditForm }) => {
+  console.log("data in OrderTable", data)
   return (
     <div className="overflow-x">
       <Table striped bordered hover>
         <thead>
           <tr>
-            {header.map((title) => (
-              <th>{title}</th>
+            {header.map((title, index) => (
+              <th key={index}>{title}</th>
             ))}
           </tr>
         </thead>

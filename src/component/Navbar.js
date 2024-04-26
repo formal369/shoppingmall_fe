@@ -15,17 +15,27 @@ import { userActions } from "../action/userAction";
 const Navbar = ({ user }) => {
   const dispatch = useDispatch();
   const { cartItemCount } = useSelector((state) => state.cart);
+
   const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
   const [showSearchBox, setShowSearchBox] = useState(false);
+  // const menuList = [
+  //   "여성",
+  //   "Divided",
+  //   "남성",
+  //   "신생아/유아",
+  //   "아동",
+  //   "H&M HOME",
+  //   "Sale",
+  //   "지속가능성",
+  // ];
   const menuList = [
-    "여성",
-    "Divided",
-    "남성",
-    "신생아/유아",
-    "아동",
-    "H&M HOME",
+    "코트용 슈즈",
+    "인조잔디용 슈즈",
+    "트레이닝복",
+    "가방",
+    "모자/악세사리",
+    "스타킹/보호용품",
     "Sale",
-    "지속가능성",
   ];
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
@@ -101,9 +111,8 @@ const Navbar = ({ user }) => {
             <div onClick={() => navigate("/cart")} className="nav-icon">
               <FontAwesomeIcon icon={faShoppingBag} />
               {!isMobile && (
-                <span style={{ cursor: "pointer" }}>{`쇼핑백(${
-                  cartItemCount || 0
-                })`}</span>
+                <span style={{ cursor: "pointer" }}>{`쇼핑백(${cartItemCount || 0
+                  })`}</span>
               )}
             </div>
             <div
@@ -124,7 +133,7 @@ const Navbar = ({ user }) => {
 
       <div className="nav-logo">
         <Link to="/">
-          <img width={100} src="/image/hm-logo.png" alt="hm-logo.png" />
+          <img width={100} src="/image/fw-logo.png" alt="fw-logo.png" />
         </Link>
       </div>
       <div className="nav-menu-area">

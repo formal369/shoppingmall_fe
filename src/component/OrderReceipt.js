@@ -10,7 +10,7 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
 
   return (
     <div className="receipt-container">
-      <h3 className="receipt-title">주문 내역</h3>
+      <h3 className="receipt-title">注文履歴</h3>
       <ul className="receipt-list">
         {cartList.length > 0 &&
           cartList.map((item) => (
@@ -37,16 +37,15 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
           className="payment-button"
           onClick={() => navigate("/payment")}
         >
-          결제 계속하기
+          決済続ける
         </Button>
       )}
 
       <div>
-        가능한 결제 수단 귀하가 결제 단계에 도달할 때까지 가격 및 배송료는
-        확인되지 않습니다.
+        可能な決済手段、貴下が決済段階に達するまで価格および配送料は確認されません。
         <div>
-          30일의 반품 가능 기간, 반품 수수료 및 미수취시 발생하는 추가 배송 요금
-          읽어보기 반품 및 환불
+          30日の返品可能期間、返品手数料及び受取時に発生する追加配送料金
+          読む 返品および返金
         </div>
       </div>
     </div>

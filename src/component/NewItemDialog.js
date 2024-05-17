@@ -18,6 +18,7 @@ const InitialFormData = {
   status: "active",
   price: 0,
 };
+
 const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
   const { selectedProduct } = useSelector((state) => state.product);
   const { error } = useSelector((state) => state.product);
@@ -27,6 +28,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
   const [stock, setStock] = useState([]);
   const dispatch = useDispatch();
   const [stockError, setStockError] = useState(false);
+
 
   const handleClose = () => {
     //모든걸 초기화시키고;
@@ -135,6 +137,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
       }
     }
   }, [showDialog]);
+
 
   //에러나면 토스트 메세지 보여주기
 

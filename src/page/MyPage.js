@@ -20,7 +20,7 @@ const MyPage = () => {
   if (orderList?.length === 0) {
     return (
       <Container className="no-order-box">
-        <div>진행중인 주문이 없습니다.</div>
+        <div>進行中の注文がありません</div>
       </Container>
     );
   }

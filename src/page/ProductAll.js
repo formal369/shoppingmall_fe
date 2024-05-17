@@ -28,9 +28,9 @@ const ProductAll = () => {
         ) : (
           <div className="text-align-center empty-bag">
             {name === "" ? (
-              <h2>상품이 없습니다</h2>
+              <h2>商品がありません</h2>
             ) : (
-              <h2>{name}과 일치하는 상품이 없습니다</h2>
+              <h2>{name}と一致する商品がありません</h2>
             )}
           </div>
         )

@@ -10,10 +10,10 @@ const OrderCompletePage = () => {
   if (orderNum === "") {
     return (
       <Container className="confirmation-page">
-        <h1>주문 실패</h1>
+        <h1>注文失敗</h1>
         <div>
-          메인페이지로 돌아가세요
-          <Link to={"/"}>메인페이지로</Link>
+          メインページに戻ってください
+          <Link to={"/"}>メインページへ</Link>
         </div>
       </Container>
     );
@@ -27,12 +27,12 @@ const OrderCompletePage = () => {
         className="check-image"
         alt="greenCheck.png"
       />
-      <h2>예약이 완료됬습니다!</h2>
-      <div>예약번호:{orderNum}</div>
+      <h2>予約が完了しました！</h2>
+      <div>予約番号:{orderNum}</div>
       <div>
-        예약 확인은 내 예약 메뉴에서 확인해주세요
+        ご予約の確認は私の予約メニューでご確認ください
         <div className="text-align-center">
-          <Link to={"/account/purchase"}>내 예약 바로가기</Link>
+          <Link to={"/account/purchase"}>予約リストへ</Link>
         </div>
       </div>
     </Container>

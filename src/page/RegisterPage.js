@@ -23,7 +23,7 @@ const RegisterPage = () => {
     const { name, email, password, confirmPassword, policy } = formData;
     // 비번 중복확인 일치하는지 확인
     if (password !== confirmPassword) {
-      setPasswordError("비밀번호가 일치하지 않습니다.");
+      setPasswordError("パスワードが一致しません");
       return;
     }
     // 이용약관에 체크했는지 확인
@@ -107,14 +107,14 @@ const RegisterPage = () => {
         <Form.Group className="mb-3">
           <Form.Check
             type="checkbox"
-            label="이용약관에 동의합니다"
+            label="利用規約に同意します"
             id="policy"
             onChange={handleChange}
             isInvalid={policyError}
           />
         </Form.Group>
         <Button variant="danger" type="submit">
-          회원가입
+          会員登録
         </Button>
       </Form>
     </Container>

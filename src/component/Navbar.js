@@ -18,25 +18,17 @@ const Navbar = ({ user }) => {
 
   const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
   const [showSearchBox, setShowSearchBox] = useState(false);
-  // const menuList = [
-  //   "여성",
-  //   "Divided",
-  //   "남성",
-  //   "신생아/유아",
-  //   "아동",
-  //   "H&M HOME",
-  //   "Sale",
-  //   "지속가능성",
-  // ];
   const menuList = [
-    "코트용 슈즈",
-    "인조잔디용 슈즈",
-    "트레이닝복",
-    "가방",
-    "모자/악세사리",
-    "스타킹/보호용품",
+    "Women",
+    "Men",
+    "Baby",
+    "Kids",
+    "H&M HOME",
+    "Sports",
     "Sale",
+    "サステナビリティ",
   ];
+
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
   const onCheckEnter = (event) => {
@@ -59,7 +51,7 @@ const Navbar = ({ user }) => {
               <FontAwesomeIcon className="search-icon" icon={faSearch} />
               <input
                 type="text"
-                placeholder="제품검색"
+                placeholder="検索"
                 onKeyPress={onCheckEnter}
               />
             </div>
@@ -99,19 +91,19 @@ const Navbar = ({ user }) => {
               <div onClick={logout} className="nav-icon">
                 <FontAwesomeIcon icon={faUser} />
                 {!isMobile && (
-                  <span style={{ cursor: "pointer" }}>로그아웃</span>
+                  <span style={{ cursor: "pointer" }}>ログアウト</span>
                 )}
               </div>
             ) : (
               <div onClick={() => navigate("/login")} className="nav-icon">
                 <FontAwesomeIcon icon={faUser} />
-                {!isMobile && <span style={{ cursor: "pointer" }}>로그인</span>}
+                {!isMobile && <span style={{ cursor: "pointer" }}>ログイン</span>}
               </div>
             )}
             <div onClick={() => navigate("/cart")} className="nav-icon">
               <FontAwesomeIcon icon={faShoppingBag} />
               {!isMobile && (
-                <span style={{ cursor: "pointer" }}>{`쇼핑백(${cartItemCount || 0
+                <span style={{ cursor: "pointer" }}>{`ショッピングバッグ(${cartItemCount || 0
                   })`}</span>
               )}
             </div>
@@ -120,7 +112,7 @@ const Navbar = ({ user }) => {
               className="nav-icon"
             >
               <FontAwesomeIcon icon={faBox} />
-              {!isMobile && <span style={{ cursor: "pointer" }}>내 주문</span>}
+              {!isMobile && <span style={{ cursor: "pointer" }}>注文</span>}
             </div>
             {isMobile && (
               <div className="nav-icon" onClick={() => setShowSearchBox(true)}>
@@ -133,7 +125,7 @@ const Navbar = ({ user }) => {
 
       <div className="nav-logo">
         <Link to="/">
-          <img width={100} src="/image/fw-logo.png" alt="fw-logo.png" />
+          <img width={100} src="/image/hm-logo.png" alt="hm-logo.png" />
         </Link>
       </div>
       <div className="nav-menu-area">
@@ -149,7 +141,7 @@ const Navbar = ({ user }) => {
             <FontAwesomeIcon icon={faSearch} />
             <input
               type="text"
-              placeholder="제품검색"
+              placeholder="検索"
               onKeyPress={onCheckEnter}
             />
           </div>

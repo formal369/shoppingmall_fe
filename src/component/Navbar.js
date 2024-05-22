@@ -7,8 +7,7 @@ import {
   faSearch,
   faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../action/userAction";
 
@@ -19,14 +18,11 @@ const Navbar = ({ user }) => {
   const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
   const [showSearchBox, setShowSearchBox] = useState(false);
   const menuList = [
-    "Women",
-    "Men",
-    "Baby",
-    "Kids",
-    "H&M HOME",
-    "Sports",
-    "Sale",
-    "サステナビリティ",
+    { name: "Women", path: "/women" },
+    { name: "Men/Unisex", path: "/men-unisex" },
+    { name: "Accessory", path: "/accessory" },
+    { name: "Kid/Child", path: "/kid-child" },
+    { name: "公知事項", path: "/announcements" },
   ];
 
   let [width, setWidth] = useState(0);
@@ -71,7 +67,9 @@ const Navbar = ({ user }) => {
 
         <div className="side-menu-list" id="menu-list">
           {menuList.map((menu, index) => (
-            <button key={index}>{menu}</button>
+            <button key={index} onClick={() => navigate(menu.path)}>
+              {menu.name}
+            </button>
           ))}
         </div>
       </div>
@@ -125,14 +123,14 @@ const Navbar = ({ user }) => {
 
       <div className="nav-logo">
         <Link to="/">
-          <img width={100} src="/image/hm-logo.png" alt="hm-logo.png" />
+          <img width={100} src="/image/vs-logo.png" alt="vs-logo.png" />
         </Link>
       </div>
       <div className="nav-menu-area">
         <ul className="menu">
           {menuList.map((menu, index) => (
             <li key={index}>
-              <a href="#">{menu}</a>
+              <Link to={menu.path}>{menu.name}</Link>
             </li>
           ))}
         </ul>

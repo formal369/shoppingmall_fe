@@ -11,9 +11,10 @@ const ProductAll = () => {
   const productList = useSelector((state) => state.product.productList);
   const [query, setQuery] = useSearchParams();
   const name = query.get('name');
+  const category = query.get('category');
   // 처음 로딩하면 상품리스트 불러오기
   useEffect(() => {
-    dispatch(productActions.getProductList({ name }));
+    dispatch(productActions.getProductList({ name, category }));
   }, [query]);
 
   return (
@@ -27,7 +28,7 @@ const ProductAll = () => {
           ))
         ) : (
           <div className="text-align-center empty-bag">
-            {name === "" ? (
+            {name === null ? (
               <h2>商品がありません</h2>
             ) : (
               <h2>{name}と一致する商品がありません</h2>

@@ -21,10 +21,10 @@ export const CATEGORY = [
   "Accessory",
   "Women",
   "Men/Unisex",
-  "Kids/Child",
+  "Kid/Child",
 ];
 export const STATUS = ["active", "disactive"];
-export const SIZE = ["XS", "S", "M", "L", "XL"];
+export const SIZE = ["XS", "S", "M", "L", "XL", "free"];
 export const TOGGLE_ITEM_DIALOG = "TOGGLE_ITEM_DIALOG";
 export const SEARCH_PRODUCT_REQUEST = " SEARCH_PRODUCT_REQUEST";
 export const SEARCH_PRODUCT_SUCCESS = " SEARCH_PRODUCT_SUCCESS";

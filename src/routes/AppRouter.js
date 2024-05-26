@@ -10,6 +10,7 @@ import PaymentPage from "../page/PaymentPage";
 import ProductAll from "../page/ProductAll";
 import ProductDetail from "../page/ProductDetail";
 import RegisterPage from "../page/RegisterPage";
+import NoticePage from "../page/NoticePage";
 import PrivateRoute from "./PrivateRoute";
 
 const AppRouter = () => {
@@ -19,6 +20,7 @@ const AppRouter = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/product/:id" element={<ProductDetail />} />
+      <Route path="/notice" element={<NoticePage />} />
       <Route element={<PrivateRoute permissionLevel="customer" />}>
         <Route path="/cart" element={<CartPage />} />
         <Route path="/payment" element={<PaymentPage />} />

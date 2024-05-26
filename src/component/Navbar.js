@@ -17,27 +17,33 @@ const Navbar = ({ user }) => {
 
   const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
   const [showSearchBox, setShowSearchBox] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const menuList = [
-    { name: "Women", path: "/women" },
-    { name: "Men/Unisex", path: "/men-unisex" },
-    { name: "Accessory", path: "/accessory" },
-    { name: "Kid/Child", path: "/kid-child" },
-    { name: "公知事項", path: "/announcements" },
+    { name: "Women", path: "/?category=women" },
+    { name: "Men/Unisex", path: "/?category=men/unisex" },
+    { name: "Accessory", path: "/?category=accessory" },
+    { name: "Kid/Child", path: "/?category=kid/child" },
+    { name: "公知事項", path: "/notice" },
   ];
 
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
+
   const onCheckEnter = (event) => {
     if (event.key === "Enter") {
-      if (event.target.value === "") {
-        return navigate("/");
+      if (searchQuery.trim() === "") {
+        navigate("/");
+      } else {
+        navigate(`/?name=${searchQuery}`);
       }
-      navigate(`?name=${event.target.value}`);
     }
   };
+
   const logout = () => {
     dispatch(userActions.logout());
   };
+
   return (
     <div>
       {showSearchBox && (
@@ -49,6 +55,7 @@ const Navbar = ({ user }) => {
                 type="text"
                 placeholder="検索"
                 onKeyPress={onCheckEnter}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
             <button
@@ -141,6 +148,7 @@ const Navbar = ({ user }) => {
               type="text"
               placeholder="検索"
               onKeyPress={onCheckEnter}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
         )}

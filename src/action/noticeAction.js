@@ -16,6 +16,8 @@ const getNoticeList = (query) => async (dispatch) => {
   }
 };
 
+
+
 const getNoticeDetail = (id) => async (dispatch) => {
   try {
     dispatch({ type: types.GET_NOTICE_DETAIL_REQUEST });

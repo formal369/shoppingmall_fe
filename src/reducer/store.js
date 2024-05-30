@@ -5,6 +5,7 @@ import cartReducer from "./cartReducer";
 import commonUiReducer from "./commonUIReducer";
 import orderReducer from "./orderReducer";
 import noticeReducer from "./noticeReducer";
+import reviewReducer from "./reviewReducer";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     ui: commonUiReducer,
     order: orderReducer,
     notice: noticeReducer,
+    review: reviewReducer,
   },
 });
 

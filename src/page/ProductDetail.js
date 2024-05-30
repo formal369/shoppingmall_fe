@@ -8,6 +8,7 @@ import { cartActions } from "../action/cartAction";
 import { commonUiActions } from "../action/commonUiAction";
 import { currencyFormat } from "../utils/number";
 import "../style/productDetail.style.css";
+import ReviewSection from "../component/ReviewSection";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -107,8 +108,13 @@ const ProductDetail = () => {
             {sizeError && "サイズを選択してください"}
           </div>
           <Button variant="dark" className="add-button" onClick={addItemToCart}>
-            추가
+            追加
           </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <ReviewSection productId={id} />
         </Col>
       </Row>
     </Container>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { reviewActions } from '../action/reviewAction';
-
+import { Button, Form } from 'react-bootstrap';
+import "../style/review.style.css";
 
 const ReviewSection = ({ productId }) => {
   const dispatch = useDispatch();
@@ -19,37 +20,71 @@ const ReviewSection = ({ productId }) => {
     setFormData({ rating: 1, comment: '' });
   };
 
-  console.log('productId@@', productId)
-  console.log('user@@', user)
-  console.log('reviews@@', reviews)
+
+  const renderStars = (rating, isEditable = false) => {
+    return (
+      <div className={`star-rating ${isEditable ? "editable" : ""}`}>
+        {[...Array(5)].map((_, index) => {
+          const value = 5 - index;
+          return (
+            <React.Fragment key={value}>
+              <input
+                type="radio"
+                id={`rating${value}-${isEditable ? "editable" : rating}`}
+                name={`rating-${isEditable ? "editable" : rating}`}
+                value={value}
+                checked={rating === value}
+                readOnly={!isEditable}
+                onChange={isEditable ? (e) => setFormData({ ...formData, rating: parseInt(e.target.value) }) : null}
+              />
+              <label
+                htmlFor={`rating${value}-${isEditable ? "editable" : rating}`}
+              >★</label>
+            </React.Fragment>
+          );
+        })}
+        <span className="rating-text">{rating}점</span>
+      </div>
+    );
+  };
 
   return (
-    <div>
-      <h3>Reviews</h3>
+    <div className="review-section">
+      <h3>レビュー</h3>
       {loading ? <p>Loading...</p> : error ? <p>{error}</p> : (
         <div>
           {reviews.map(review => (
-            <div key={review._id}>
-              <p><strong>{review.userId.username}</strong>: {review.rating} stars</p>
+            <div key={review._id} className="review-card">
+              <h5><strong>{review.userId.name}</strong></h5>
+              {renderStars(review.rating)}
               <p>{review.comment}</p>
             </div>
           ))}
         </div>
       )}
       {user && (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Rating:
-            <select value={formData.rating} onChange={(e) => setFormData({ ...formData, rating: e.target.value })}>
-              {[1, 2, 3, 4, 5].map(rating => <option key={rating} value={rating}>{rating}</option>)}
-            </select>
-          </label>
-          <label>
-            Comment:
-            <textarea value={formData.comment} onChange={(e) => setFormData({ ...formData, comment: e.target.value })} />
-          </label>
-          <button type="submit">Submit Review</button>
-        </form>
+        <div className="review-form">
+          <h4>レビュー作成</h4>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="rating">
+              <Form.Label>Rating:</Form.Label>
+              {renderStars(formData.rating, true)}
+            </Form.Group>
+            <Form.Group controlId="comment">
+              <Form.Label>Comment:</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                value={formData.comment}
+                onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
+                required
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              作成
+            </Button>
+          </Form>
+        </div>
       )}
     </div>
   );

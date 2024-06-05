@@ -1,0 +1,105 @@
+.review-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.review-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h5 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.review-card p {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.review-form {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.review-form label {
+  font-weight: bold;
+  color: #333;
+}
+
+.review-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.review-form .rating-text {
+  font-size: 18px;
+  color: #333;
+  margin-left: 10px;
+}
+
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 1.5rem; /* 크기를 조금 더 키움 */
+  line-height: 2rem;
+  justify-content: left;
+  padding: 0 0.1em; /* 패딩을 줄여 간격 조정 */
+  text-align: center;
+  width: 7em; /* 너비 조정 */
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #2b2a29;
+  margin: 0 0.1em; /* 간격 조정 */
+}
+
+.star-rating.editable label {
+  cursor: pointer;
+}
+
+.star-rating.editable :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+
+.star-rating.editable label:hover,
+.star-rating.editable label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+}
+
+.star-rating:not(.editable) label {
+  cursor: default;
+}
+
+.star-rating:not(.editable) :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+
+.rating-text {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #333;
+}

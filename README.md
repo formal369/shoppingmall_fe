@@ -34,6 +34,8 @@ Frontend
 
 Backend
 
+https://github.com/formal369/shoppingmall_be
+
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
@@ -138,6 +140,8 @@ test.js
 ```
 
 Backend
+
+https://github.com/formal369/shoppingmall_be
 ```
 .vscode/
 controllers/
@@ -175,6 +179,19 @@ package.json
 ```
 
 ## Features
-Main Page
+1. Main Page
 ![alt text](image.png)
 ![alt text](image-1.png)
+
+2. Login Page
+![alt text](image-2.png)
+
+3. Register Page
+![alt text](image-3.png)
+
+## TODO
+1. 多言語対応(i18n)
+2. ポイントとリワードシステムです
+3. プロモーションおよび割引コードです
+4. リアルタイムチャット対応です
+5. ウィッシュリスト
